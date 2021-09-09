@@ -1,7 +1,6 @@
 package com.swann.Model;
 
 import lombok.Data;
-import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -15,7 +14,7 @@ public class User {
     private Long userId;
 
     @NotBlank(message = "Username is required")
-    @UniqueElements(message = "Username is already exist")
+    @Column(unique = true)
     private String username;
 
     @NotBlank(message = "Password is required")
