@@ -1,5 +1,6 @@
 package com.swann.Model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -20,7 +21,9 @@ public class Post {
     @Lob
     private String content;
 
+    @JsonFormat(pattern = "dd-mm-yyyy")
     private Date createdAt;
+    @JsonFormat(pattern = "dd-mm-yyyy")
     private Date updatedAt;
 
     @PrePersist
