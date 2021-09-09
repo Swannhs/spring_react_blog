@@ -33,5 +33,3 @@ build/
 .vscode/
 
 
-### React JS ###
-/frontend/node_modules
