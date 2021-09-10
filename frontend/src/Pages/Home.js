@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from "axios";
-import Post from "../Components/Post";
+import Posts from "../Components/Posts";
 import Layout from "../Components/Layout";
 
 class Home extends Component {
@@ -25,7 +25,7 @@ class Home extends Component {
             <Layout>
                 {
                     this.state.data.map(post => {
-                        return <Post id={post.postId} title={post.title} content={post.content} createdAt={post.createdAt}/>
+                        return <Posts id={post.postId} title={post.title} content={post.content} createdAt={post.createdAt}/>
                     })
                 }
             </Layout>
