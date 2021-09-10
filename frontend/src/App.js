@@ -1,17 +1,16 @@
 import './App.css';
 import React from 'react';
-import Layout from "./Components/Layout";
-import Post from "./Components/Post";
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import Home from "./Pages/Home";
 
 function App() {
     return (
         <div className="App">
-            <Layout>
-                <Post/>
-                <Post/>
-                <Post/>
-                <Post/>
-            </Layout>
+            <Router>
+                <Switch>
+                    <Route exact path='/' component={Home}/>
+                </Switch>
+            </Router>
         </div>
     );
 }
