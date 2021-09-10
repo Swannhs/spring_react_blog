@@ -38,4 +38,8 @@ public class UserDetailsServiceImp implements UserDetailsService {
         return singletonList(new SimpleGrantedAuthority(role));
     }
 
+    @Transactional
+    public Optional<User> getByToken(String token) {
+        return userRepository.findByUsername(token);
+    }
 }
