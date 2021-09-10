@@ -1,9 +1,8 @@
 package com.swann.Security;
 
-import com.swann.Model.User;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.*;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -21,14 +20,11 @@ public class JwtTokenProvider {
 
         Date expiryDate = new Date(now.getTime() + EXPIRATION_TIME);
 
-        String userId = Long.toString(user.getUserId());
-
         Map<String, Object> claims = new HashMap<>();
-        claims.put("id", (Long.toString(user.getUserId())));
         claims.put("username", user.getUsername());
 
         return Jwts.builder()
-                .setSubject(userId)
+                .setSubject(user.getUsername())
                 .setClaims(claims)
                 .setIssuedAt(now)
                 .setExpiration(expiryDate)
