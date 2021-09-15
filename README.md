@@ -1,1 +1,1 @@
-"# spring_react_blog" 
+# Simple spring boot and react application
